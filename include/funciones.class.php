@@ -55,7 +55,8 @@ class funciones {
 	//	Autor(es): DanielaRomero	
 			function cantidadReg($entidad,$where='') {
 				if ($this->con->conectar() == true) {
-				  $resultado=mysql_query(" SELECT COUNT(*) as cant FROM $entidad $where " ) or die (mysql_error());
+					$sql = "SELECT COUNT(*) as cant FROM $entidad $where";
+				  $resultado=mysql_query($sql) or die ("contando " . mysql_error() . " " .$sql);
 				  $cant=mysql_fetch_array($resultado);
 				 // $this->con->desconectar();
 				  return $cant['cant'];

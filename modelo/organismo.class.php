@@ -20,7 +20,7 @@ class organismo extends funciones {
 			}
 		}
 	//****** Fin Agregar Usuario
-	
+
 	//	Editar Usuario: *****
 	//	Autor(es): DanielaRomero
 		function editar($id, $descrip, $direccion, $telefono) {

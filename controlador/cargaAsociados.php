@@ -4,7 +4,9 @@
 	// $con = mysql_connect('localhost', 'root', 'programacion');
     // mysql_select_db('siscap');
     include('../modelo/trabajador.class.php');
+    include('../modelo/organismo.class.php');
     $objeto = new trabajador();
+    $objOrganismo = new organismo();
     date_default_timezone_set('America/Caracas');
 
     function convertirFecha_SpanishToEnglish($date)
@@ -43,13 +45,17 @@
 
 	foreach($personas -> datos as $fila)
 	{   
-        $fecha = convertirFecha_SpanishToEnglish($fila->fechaI);
-        $total = $objeto->cantidadReg('trabajador',' WHERE trabCedula = ' . $fila->cedula);
-        if($total === FALSE) {
-            die("Error al consultar el total de trabajadores: " . mysql_error());
+        // Validacion del organismo
+        if ( ($objeto->cantidadReg('trabajador',' WHERE trabCedula = ' . $fila->cedula)) != 0 ){
+            continue;
         }
-        if($total == 0) {
-            $oper = $objeto->agregar($fila->cedula,
+        if ( ($objOrganismo->cantidadReg('organismo','WHERE organismoId = ' . $fila->organismo)) == 0 ){
+            header('Content-type: text/plain; charset=utf-8');
+            die("El código de organismo que colocó al trabajador(a) " . $fila->cedula ." no existe en el sistema, por favor verifique la información");
+        }
+        // ------------------------
+        $fecha = convertirFecha_SpanishToEnglish($fila->fechaI);
+        $oper = $objeto->agregar($fila->cedula,
                             strtoupper($fila->nombre),
                             strtoupper($fila->apellido),
                             strtoupper($fila->sexo),
@@ -61,28 +67,8 @@
                             strtoupper($fila->cargo),
                             $fila->sueldo,
                             date('Y-m-d'));
-            if($oper === FALSE) {
-                echo mysql_error();
-                die("Error agregando una fila");
-            }
-        } 
-        else {
-            $oper = $objeto->editar($fila->cedula,
-                            $fila->cedula,
-                            strtoupper($fila->nombre),
-                            strtoupper($fila->apellido),
-                            strtoupper($fila->sexo),
-                            strtoupper($fila->civil),'','','','','','',
-                            $fila->codigo,
-                            $fecha,
-                            $fila->organismo,
-                            $fila->dpto,
-                            strtoupper($fila->cargo),
-                            $fila->sueldo);
-            if($oper === FALSE) {
-                echo mysql_error();
-                die("Error editando una fila");
-            }
+        if($oper === FALSE) {
+            die("Error agregando una fila");
         }
 	}
 	header('Content-type: text/plain; charset=utf-8');

@@ -45,16 +45,20 @@
 							type: 'POST',
 							url: 'controlador/cargaAsociados.php',
 							data: 'dato='+JSON.stringify(json),
+							dataType: 'text',
 							beforeSend: function() {
 								$('#cargando').css("display", "block");
 							},
 							success: function(respuesta) {
 								$('#cargando').css("display", "none");
 								console.log(respuesta);
+								
 								if(respuesta == 1){
 								swal("Correcto",
 									"Datos insertados correctamente",
 									"success");
+								} else if (respuesta.length > 5) {
+									swal("Advertencia",respuesta,"warning");
 								} else {
 								swal("Fallida",
 									"No se pudo realizar la operación",

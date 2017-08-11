@@ -5,17 +5,17 @@
         jQuery("#listado"+$entidad).jqGrid({
             url:'controlador/organismo.php',
             datatype: "json",
-            colNames:['Co&acute;digo','Nombre','Direcci&oacuten','Tel&eacute;fono'],
+            colNames:['Código','Nombre','Direcci&oacuten','Tel&eacute;fono'],
             colModel:[
                 {name:'id'
                     ,index:'organismoId'
-                    ,width:'40'
+                    ,width:'10'
                     ,editable:false
                     ,key:true
-                    ,hidden:true
+                    ,hidden:false
                     ,resizable:true
-                    ,edittype:"text"
-                    ,editoptions: {required:false, size:4, maxlength: 3,hidedlg:false}
+                    ,edittype: "text"
+                    ,editoptions: {required:false, size:2, maxlength: 1,hidedlg:false}
                     ,formoptions:{ rowpos:1}
                 },
                 {name:'descrip'

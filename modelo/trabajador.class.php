@@ -26,7 +26,7 @@ class trabajador extends funciones{
 								VALUES ('".$cedula."','".$nombre."','".$apellido."','".$sexo."','".$edocivil."','".$fechanac."','".$nivel."','".$profesion."','".$direccion."','".$correo."','".$telefono."',
 										'".$codigo."','".$fechaingreso."','".$orgaid."','".$depaid."','".$cargo."','".$sueldo."','Activo','".$fecha."')";
 				}
-				return mysql_query($Sql)  or die (mysql_error());	
+				return mysql_query($Sql)  or die ("agregando " . mysql_error());	
 					
 			}
 		}
@@ -83,7 +83,7 @@ class trabajador extends funciones{
 					WHERE trabCedula = '".$id."'";
 				}
 				
-				return mysql_query($Sql)  or die (mysql_error());
+				return mysql_query($Sql)  or die ("editando " . mysql_error());
 				
 			}
 		}
