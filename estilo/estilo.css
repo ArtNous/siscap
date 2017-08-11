@@ -1,0 +1,152 @@
+
+
+body {
+	font-size:13px; font-family:Arial, Helvetica, sans-serif;
+	min-width:950px; margin:0px;
+	background:#f4f4f4 url(../imagenes/bg.gif) repeat top left;
+}
+
+img { border:0px; }
+
+a, a:visited { text-decoration:none;	outline:none; }
+a:hover {text-decoration:none;}
+
+table { font-size:13px; font-family:Arial, Helvetica, sans-serif; }
+
+.mayuscula{text-transform:uppercase;}
+.minuscula{text-transform: lowercase;}
+
+#contenedor { width:950px; min-height:700px; margin:0px auto; margin-top:15px; background-color:white; }
+
+.banner { width:950px; height:200px; background-image:url('../imagenes/banner.png'); background-color:white; }
+
+.contenido { 
+	width:auto; min-height:380px;
+	margin-top: 0px; padding: 0px; 
+	background-color:white;
+}
+
+/*** Estilo del Login  - Acceso al Sistema ****/
+#login { 
+	width:300px; margin-top:30px; margin-left:60px; float:left;
+}
+
+#login  fieldset{
+	width:330px; height:265px;
+	background-image:url('../imagenes/login.png');  background-repeat: no-repeat; 
+	margin-top:20px; border:0px; padding:0px; 
+}
+
+.imgLogin{
+	width:473px; height:380px;
+	background-image:url('../imagenes/imgLogin.png'); 	background-repeat: no-repeat; 
+	float:right;
+}
+/*** Fin Estilo del Login  - Acceso al Sistema ****/
+
+/****   Menu de Opciones para cambio de Contraseña y salir del sistema  ***/
+#opcMenu {text-align:right; font-weight:bold;font-size:12px; padding-top:20px;  width:680px; }
+#opcMenu a {color:#021B6F;} 
+#opcMenu a:hover{text-decoration:underline;}
+
+.opcMenu {margin-top:-10px; margin-bottom:10px; }
+.opcMenu a {font-weight:bold;font-size:12px; color:#021B6F; }
+.opcMenu a:hover{text-decoration:underline;}
+
+.imgVista {
+	width:240px; height:360px;
+	background-image:url('../imagenes/imgVista.png');  background-repeat: no-repeat; 
+	float:right; top:-25px; 
+}
+
+.vista {
+	width:930px; height:auto;
+	float:left; margin-top:10px; padding-left:10px;
+}
+
+
+.footer { 
+	width:930px; height:120px;
+	margin: 0 auto; padding:10px; clear:both;
+	background-color:white; background-image:url('../imagenes/footer.png'); 
+}
+
+#contactanos {
+	width:100px; height:auto;  margin-left:15px; margin-top:90px;
+	font: bold 16px Agency FB,arial; text-align:center; color:white; letter-spacing: 0.18em;
+}
+#contactanos a {color:white;}
+#contactanos a:hover {text-decoration:underline;}
+
+#ubicacion {
+	font: bold 11px arial;  color:white; text-align:right; 
+	margin-right:5px; margin-top:-20px;
+}
+
+#DReservados {
+	color:#021D6E; font-weight:bold; text-align:center;
+	width:940px; padding:5px; margin:0px auto; clear:both; margin-bottom:10px; border-radius: 0px 0px 10px 10px; 
+	background: none repeat scroll 0 0 #F0F0F0;  /*  #F0F0F0  */ 
+}
+
+
+
+/***   Formato de input ****/
+.estilo-input{
+	border-radius:5px;
+	padding:3px;
+	border: 1px solid #D3D3D3;
+	color: #333333;
+}
+
+.titulo { font-weight:bold;  font-size:22px; font-family:Agency FB,Arial;  font-variant: small-caps; letter-spacing:0.11em;}
+
+#rsperror, .msj {color:red; font-size:11px;}
+.error {color:red; font-size:12px;}
+
+
+/*Estilo para las ventanas de los reportes (vistarpt) */
+#ventana{
+	border-radius:15px;
+	-webkit-border-radius:20px;
+	-moz-border-radius:10px;
+	-webkit-box-shadow: 5px 5px 10px 4px grey;
+	-moz-box-shadow: 5px 5px 10px 4px grey;
+	box-shadow: 5px 5px 10px 4px grey;
+	background-image: -moz-linear-gradient(center top ,#ffffff, #F2F2F2 );/*#CECECE, #F2F2F2*/
+	border: 1px solid #D4D4D4;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+	min-width: 300;
+	margin: 0px auto;
+	padding-bottom:10px;
+}
+ 
+#ventana .titular{
+	background-color:#C20303;
+	width:auto;
+	background-image: -moz-linear-gradient(center top ,#9A0D0D, #C20303 );  /* #051C69, #000053 */
+	border: 1px solid #D4D4D4;
+	border-radius: 12px 12px 2px 2px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+	padding: 12px 5px;
+	color: #F2F2F2;
+	/* font-family: cambria, serif; */
+	font-weight: bold;
+	font-size: 14px;
+	margin-top: 1px;
+	text-align: center;
+ 
+}
+ 
+#ventana table{
+	font-family: Arial;
+	color: #444444;
+	font-size: 12px;
+	margin:0px auto; 
+	margin-top: 10px;
+	padding: 10px;
+}
+ 
+ #ventana table td, #ventana input, #ventana select {padding:3px;}
+
+

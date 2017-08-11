@@ -1,0 +1,46 @@
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    display: inline-block;
+    margin: 15px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border: 0.25rem solid rgb(0, 0, 0);
+    border-top-color: lightskyblue;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+    vertical-align: middle;
+}
+
+#txtCargando {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    color: blue;
+    font-family: impact;
+}
+
+#cargando {
+    display: none;
+}
