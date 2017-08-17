@@ -3,6 +3,8 @@
     if (!isset($_SESSION)) session_start();
     include('../modelo/prestamos.class.php');
     include('../modelo/detalle_prestamo.class.php');
+    include ("../modelo/trabajador.class.php");
+	$objeto = new trabajador;
 	$usuario = $_SESSION["usuId"];
 
     $prestamo = new prestamos();
@@ -55,15 +57,18 @@
 	foreach($personas -> datos as $fila)
 	{
         // Busca el trabajador
-		$sql = "SELECT trabCedula FROM trabajador WHERE trabCedula = '".$fila->cedula."'";
-		$res = mysql_query($sql,$con);
-		if(!$res) {
-			die(mysql_error($con));
-		}
+        $total = $objeto->cantidadReg('trabajador',' WHERE trabCedula = '.$fila->cedula);
+		// $sql = "SELECT trabCedula FROM trabajador WHERE trabCedula = '".$fila->cedula."'";
+		// $res = mysql_query($sql,$con);
+		// if(!$res) {
+		// 	die(mysql_error($con));
+		// }
+
         // Si no lo consigue, envia un mensaje 
         // al navegador para decir que lo cree
         // y cancela el proceso
-		if(mysql_num_rows($res)===0){
+		// if(mysql_num_rows($res)===0){
+		if($total==0){
 			$respuesta["msj"] = 2;
 			$respuesta["trabajador"] = $fila->cedula;
 			header('Content-type: application/json; charset=utf-8');
